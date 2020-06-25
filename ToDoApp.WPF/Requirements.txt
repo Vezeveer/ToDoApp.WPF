@@ -1,0 +1,3 @@
+﻿Minimum Requirements:
+-Visual Studio 2019 v16.5.4
+-.NET Core 3.1
