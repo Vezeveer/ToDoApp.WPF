@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using To_do_list_system;
 
 namespace ToDoApp.WPF
 {
@@ -20,15 +21,57 @@ namespace ToDoApp.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        List<UserList> lists = new List<UserList>();
+        public string Username { get; set; }
+
+        public MainWindow(string username)
         {
+            ListOption listOption = new ListOption(username);
+
+            string[] strLists = listOption.ShowList2(username);
+            foreach (var list in strLists)
+            {
+                lists.Add(new UserList { listName = list });
+            }
+
+            Username = username;
             InitializeComponent();
-            txtList.Text = "Hello there";
+
+            itemGrid.Visibility = Visibility.Hidden;
+
+            dataGrid.ItemsSource = lists;
         }
 
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        // Allows us to make full use of datagrid
+        class UserList
         {
-            MessageBox.Show("The coords are: " + e.GetPosition(this).ToString());
+            public string listName { get; set; }
         }
+
+        class ListItem
+        {
+            public string item { get; set; }
+        }
+
+        // Shows all items on clicked list
+        void dataGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            itemGrid.Visibility = Visibility.Visible;
+
+            ListOption listOption = new ListOption(Username);
+            List<ListItem> listItems = new List<ListItem>();
+
+            UserList ListObject = dataGrid.SelectedItem as UserList;
+            string[] strListArr = listOption.ShowItems2(Username, ListObject.listName);
+            foreach(var itemx in strListArr)
+            {
+                listItems.Add(new ListItem { item = itemx });
+            }
+
+            itemGrid.ItemsSource = listItems;
+            //items.Text = string.Join("\n", strListArr);
+
+        }
+
     }
 }

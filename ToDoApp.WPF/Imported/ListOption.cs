@@ -32,6 +32,29 @@ namespace To_do_list_system
             return Files;
         }
 
+        //USED IN WPF
+        public string[] ShowList2(string username)
+        {
+            var file = new MyFileHandler(username);
+            string listDirectory = $@"./account_list/{username}/lists";
+            string[] lists = file.GetAvailableList(listDirectory);
+
+            //string[] toDoList = File.ReadAllLines($@"{listDirectory}/{listName}.txt");
+
+            return lists;
+        }
+
+        public string[] ShowItems2(string username, string listname)
+        {
+            //var file = new MyFileHandler(username);
+            string listDirectory = $@"./account_list/{username}/lists";
+            //string[] lists = file.GetAvailableList(listDirectory);
+
+            string[] listItems = File.ReadAllLines($@"{listDirectory}/{listname}.txt");
+
+            return listItems;
+        }
+
         public string[] ShowList(string username) // for current user show list, or get list
         {
             var file = new MyFileHandler(username);
@@ -44,7 +67,7 @@ namespace To_do_list_system
                 {
                     int listNumber = ValidateChoice.GetNumber(lists.Length, "Lists created by " + username, lists);
 
-                    if(listNumber == 0) //exit
+                    if (listNumber == 0) //exit
                     {
                         break;
                     }
@@ -60,7 +83,7 @@ namespace To_do_list_system
                         }
                         else
                         {
-                            MenuPrinter.PrintMenu(lists[listNumber-1] + " List", toDoList, null);
+                            //MenuPrinter.PrintMenu(lists[listNumber-1] + " List", toDoList, null);
                             return toDoList;
                         }
                     }

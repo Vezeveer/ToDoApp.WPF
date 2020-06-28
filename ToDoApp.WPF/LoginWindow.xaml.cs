@@ -36,7 +36,7 @@ namespace ToDoApp.WPF
                 bool isUserFake = login.checkUser(txtPassword.Password, txtUsername.Text);
                 if (!isUserFake)
                 {
-                    MainWindow mainWindow = new MainWindow();
+                    MainWindow mainWindow = new MainWindow(txtUsername.Text);
                     mainWindow.Show();
                     this.Close();
                 }
