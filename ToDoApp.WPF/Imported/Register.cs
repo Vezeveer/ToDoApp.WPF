@@ -1,5 +1,7 @@
 using System;
 using System.IO;
+using System.Windows;
+using ToDoApp.WPF;
 
 namespace To_do_list_system
 {
@@ -15,9 +17,9 @@ namespace To_do_list_system
         
         public void successEntry()
         {
-            Console.WriteLine("\nData saved Successfully...");
-            Console.ReadLine();
-
+            //Console.WriteLine("\nData saved Successfully...");
+            //Console.ReadLine();
+            
         }
 
         public void makeListDirectory(string username)
@@ -62,76 +64,79 @@ namespace To_do_list_system
             }
         }
 
-        public void runRegistrationForm()
+        public void runRegistrationForm(string userName, string passWord)
         {
-            string re_password;
-            string password;
-            string recovery_answer;
+            //string re_password;
+            //string password;
+            //string recovery_answer;
 
-            try
-            {
-                Login login = new Login();
+            //try
+            //{
+                //Login login = new Login();
 
-                string title = "Registration Form";
-                string[] options = { 
-                    "Enter your new username",
-                    "Type 'exit' to exit"
-                };
+                //string title = "Registration Form";
+                //string[] options = { 
+                //    "Enter your new username",
+                //    "Type 'exit' to exit"
+                //};
 
-                Console.Write("Username: ");
-                string xUsername = ValidateChoice.GetUserName(title, options);
+                //Console.Write("Username: ");
+                //string xUsername = ValidateChoice.GetUserName(title, options);
 
-                if(xUsername == "exit")
-                {
-                    Environment.Exit(0);
-                }
+                //if(xUsername == "exit")
+                //{
+                //    Environment.Exit(0);
+                //}
 
-                bool not_existing = checkDirectory(xUsername);
+                bool not_existing = checkDirectory(userName);
 
                 if (not_existing)
                 {
-                    while (true)
-                    {
-                        Console.Write("Password: ");
-                        password = Console.ReadLine();
+                    //while (true)
+                    //{
+                        //Console.Write("Password: ");
+                        //password = Console.ReadLine();
 
-                        Console.Write("Re-enter password: ");
-                        re_password = Console.ReadLine();
+                        //Console.Write("Re-enter password: ");
+                        //re_password = Console.ReadLine();
                     
 
-                        if (re_password != password)
-                        {
-                            Console.WriteLine("\nPassword don't match!");
-                            Console.ReadLine();
-                        }
-                        else
-                        {
+                        //if (re_password != password)
+                        //{
+                        //    Console.WriteLine("\nPassword don't match!");
+                        //    Console.ReadLine();
+                        //}
+                        //else
+                        //{
 
-                            int input = ValidateChoice.GetNumber(3, "Pick a recovery question", questions);
+                            //int input = ValidateChoice.GetNumber(3, "Pick a recovery question", questions);
 
-                            Console.Write("Answer to question> ");
-                            recovery_answer = Console.ReadLine();
+                            //Console.Write("Answer to question> ");
+                            //recovery_answer = Console.ReadLine();
 
-                            makeDirectory(xUsername);
-                            makeListDirectory(xUsername);
-                            savePassword(xUsername, password);
-                            saveRecovery(questions[input-1], xUsername, password);
-                            successEntry();
-                            break;
-                        }
-                    }
-                }
+                            makeDirectory(userName);
+                            makeListDirectory(userName);
+                            savePassword(userName, passWord);
+                
+                
+                //saveRecovery(questions[input-1], xUsername, password);
+                //successEntry();
+                //break;
+                //}
+                //}
+            }
                 else
                 {
-                    Console.WriteLine("\nUsername already taken...\nExiting...");
-                    Console.ReadLine();
-                    Console.Clear();
+                    //Console.WriteLine("\nUsername already taken...\nExiting...");
+                    //Console.ReadLine();
+                    //Console.Clear();
+                    MessageBox.Show("Username already taken");
                 }
-            }
-            catch
-            {
-                Console.WriteLine("\nInvalid input.\nTry again...");
-            }
+            //}
+            //catch
+            //{
+            //    //Console.WriteLine("\nInvalid input.\nTry again...");
+            //}
         }
     }
 }

@@ -33,7 +33,7 @@ namespace To_do_list_system
                         break;
                     case 2:
                         Register register = new Register();
-                        register.runRegistrationForm();
+                        //register.runRegistrationForm();
                         break;
                     case 3:
                         Recovery recovery = new Recovery();
@@ -65,7 +65,7 @@ namespace To_do_list_system
 
                 if (_password == fetched_password[0])
                 {
-                    Console.Clear();
+                    //Console.Clear();
 
                     //Console.WriteLine("Log in Successfully! ");
                     //Console.ReadLine();

@@ -26,21 +26,25 @@ namespace ToDoApp.WPF
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
-            bool isUserFake = login.checkUser(txtPassword.Password, txtUsername.Text);
 
-            
-
-            if(!isUserFake)
+            if(txtUsername.Text == "" || txtPassword.Password == "")
             {
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
+                MessageBox.Show("Please provide a username and password");
             }
             else
             {
-                MessageBox.Show("Incorrect info provided or User does not exist.");
+                bool isUserFake = login.checkUser(txtPassword.Password, txtUsername.Text);
+                if (!isUserFake)
+                {
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username/password combination or User does not exist.");
+                }
             }
-            
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
