@@ -54,7 +54,8 @@ namespace To_do_list_system
                         string[] toDoList = File.ReadAllLines($@"{listDirectory}/{lists[listNumber-1]}.txt");
                         if (toDoList.Length == 0)
                         {
-                            MenuPrinter.PrintMenu(lists[listNumber-1] + " List", null ,new string[] { "List is empty..." });
+                            //MenuPrinter.PrintMenu(lists[listNumber-1] + " List", null ,new string[] { "List is empty..." });
+                            
                             break;
                         }
                         else
@@ -65,16 +66,16 @@ namespace To_do_list_system
                     }
                     catch
                     {
-                        Console.WriteLine("> The list you gave us does not exist!");
-                        Console.ReadKey();
-                        Console.Clear();
+                        //Console.WriteLine("> The list you gave us does not exist!");
+                        //Console.ReadKey();
+                        //Console.Clear();
                         continue;
                     }
                 }
             }
             else
             {
-                Console.WriteLine("> No List Exists...");
+                //Console.WriteLine("> No List Exists...");
             }
             return null;
         }

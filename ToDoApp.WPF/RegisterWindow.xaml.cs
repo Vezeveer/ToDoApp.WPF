@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -10,25 +8,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ToDoApp.WPF
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RegisterWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RegisterWindow : Window
     {
-        public MainWindow()
+        public RegisterWindow()
         {
             InitializeComponent();
-            txtList.Text = "Hello there";
         }
 
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        private void btnNewUser_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("The coords are: " + e.GetPosition(this).ToString());
+
         }
     }
 }

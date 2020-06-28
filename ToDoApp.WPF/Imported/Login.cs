@@ -76,13 +76,13 @@ namespace To_do_list_system
                 }
                 else
                 {
-                    error_message("password");
+                    //error_message("password");
                     return true;
                 }
             }
             else
             {
-                error_message("username");
+                //error_message("username");
                 return true;
             }
         }
