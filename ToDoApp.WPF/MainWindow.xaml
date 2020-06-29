@@ -32,7 +32,7 @@
             <TabItem Header="View/Edit">
 
                 <ScrollViewer HorizontalScrollBarVisibility="Auto">
-                    <StackPanel MinWidth="330" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <StackPanel MinWidth="320" VerticalAlignment="Top" HorizontalAlignment="Left">
 
 
                         <DataGrid MaxHeight="300" Name="dataGrid"

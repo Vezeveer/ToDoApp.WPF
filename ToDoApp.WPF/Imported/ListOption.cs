@@ -16,7 +16,7 @@ namespace To_do_list_system
             listDirectory = "./account_list/" + username + "/lists";
             activeUser = username;
             file_handler = new MyFileHandler(username);
-            lists = file_handler.GetAvailableList(listDirectory);
+            lists = file_handler.GetAvailableList(listDirectory, username);
         }
 
         public FileInfo[] GetList(string username)
@@ -37,7 +37,7 @@ namespace To_do_list_system
         {
             var file = new MyFileHandler(username);
             string listDirectory = $@"./account_list/{username}/lists";
-            string[] lists = file.GetAvailableList(listDirectory);
+            string[] lists = file.GetAvailableList(listDirectory, username);
 
             //string[] toDoList = File.ReadAllLines($@"{listDirectory}/{listName}.txt");
 
@@ -59,7 +59,7 @@ namespace To_do_list_system
         {
             var file = new MyFileHandler(username);
             string listDirectory = $@"./account_list/{username}/lists";
-            string[] lists = file.GetAvailableList(listDirectory);
+            string[] lists = file.GetAvailableList(listDirectory, username);
 
             if (lists.Length != 0) //check if any list exists
             {
@@ -138,7 +138,7 @@ namespace To_do_list_system
             bool loop = true;
             string[] pathLists = Directory.GetFiles("./account_list/" + username + "/lists");
             List<string> xList = new List<string>();
-            string[] currentLists = file_handler.GetAvailableList(listDirectory);
+            string[] currentLists = file_handler.GetAvailableList(listDirectory, username);
 
             if (currentLists.Length == 0) //check if any list exists
             {

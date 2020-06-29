@@ -1,25 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using To_do_list_system;
 
 namespace ToDoApp.WPF
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         List<UserList> lists = new List<UserList>();
@@ -38,12 +25,10 @@ namespace ToDoApp.WPF
             Username = username;
             userTitleName.Text = username;
             itemGrid.Visibility = Visibility.Hidden;
-            //btnDeleteItem.Visibility = Visibility.Hidden;
             gridAddToList.Visibility = Visibility.Hidden;
-            //dataGrid.ItemsSource = lists;
         }
 
-        // Allows us to make full use of datagrid
+        // Required to make full use of datagrid
         class UserList
         {
             public string listName { get; set; }
@@ -64,7 +49,6 @@ namespace ToDoApp.WPF
         void PopulateItems()
         {
             itemGrid.Visibility = Visibility.Visible;
-            //btnDeleteItem.Visibility = Visibility.Visible;
             gridAddToList.Visibility = Visibility.Visible;
 
             List<ListItem> listItems = new List<ListItem>();
@@ -121,6 +105,7 @@ namespace ToDoApp.WPF
                 lists.Clear();
                 foreach (var list in strLists)
                 {
+                    
                     lists.Add(new UserList { listName = list });
                 }
                 dataGrid.ItemsSource = lists;

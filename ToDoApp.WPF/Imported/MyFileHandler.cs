@@ -33,19 +33,18 @@ namespace To_do_list_system
             return path.Substring(index);
         }
 
-        public string[] GetAvailableList(string listPath)
+        public string[] GetAvailableList(string listPath, string username)
         {
            if (Directory.Exists(listPath))
            {
-                string [] fileEntries = Directory.GetFiles(listPath);
+                string[] fileEntries = Directory.GetFiles(listPath);
                 string[] listNames = new string[fileEntries.Length];
                 int i = 0;
                 foreach (var file in fileEntries)
                 {
-                    string path_substring = file.Substring(26);
-                    path_substring = path_substring.Substring(0, path_substring.Length - 4);
-                    path_substring = removeSpecialCharacters(path_substring);
-                    listNames[i] = path_substring;
+                    string fileName = file.Substring(username.Length + 22);
+                    fileName = fileName.Replace(".txt", "");
+                    listNames[i] = fileName;
                     i++;
                 }
                 return listNames;
