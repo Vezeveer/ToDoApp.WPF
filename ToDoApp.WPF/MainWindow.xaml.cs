@@ -62,6 +62,7 @@ namespace ToDoApp.WPF
                     listItems.Add(new ListItem { item = itemx });
                 }
 
+                txtSelectedList.Text = "Selected: " + userListObject.listName;
                 itemGrid.ItemsSource = listItems;
             }
         }
@@ -178,6 +179,7 @@ namespace ToDoApp.WPF
                 File.Delete($@"{path}");
                 dataGrid.ItemsSource = null;
                 itemGrid.ItemsSource = null;
+                txtSelectedList.Text = "Selected: no list selected";
                 PopulateList();
             }
             catch

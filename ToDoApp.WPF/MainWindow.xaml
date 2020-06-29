@@ -72,6 +72,7 @@
                             <Button Click="AddItem" Grid.Row="1" Grid.Column="1">Add To List</Button>
 
                         </Grid>
+                        <TextBlock Name="txtSelectedList">Selected: no list selected</TextBlock>
 
                         <DataGrid MaxHeight="300" Name="itemGrid"
                     IsReadOnly="True"
