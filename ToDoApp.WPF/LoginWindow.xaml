@@ -8,14 +8,14 @@
         WindowStartupLocation="CenterScreen"
         Background="DarkSlateBlue"
         
-        Title="LoginWindow" Height="450" Width="600">
+        Title="LoginWindow" Height="450" Width="400">
     <StackPanel Margin="30">
         <Label Foreground="white" FontSize="30" HorizontalAlignment="Center">LOGIN</Label>
         <Separator></Separator>
         <Label FontSize="24" Foreground="White">Username</Label>
-        <TextBox Name="txtUsername" Foreground="White" FontSize="22" Background="DarkGray" />
+        <TextBox KeyDown="CheckEnter" Name="txtUsername" Foreground="White" FontSize="22" Background="DarkGray" />
         <Label FontSize="24" Foreground="White">Password</Label>
-        <PasswordBox Name="txtPassword" Foreground="White" FontSize="22" Background="DarkGray"></PasswordBox>
+        <PasswordBox KeyDown="CheckEnter" Name="txtPassword" Foreground="White" FontSize="22" Background="DarkGray"></PasswordBox>
         
         <Button Name="btnLogin" Foreground="White" Click="btnLogin_Click" Width="200" Margin="20" FontSize="22" Background="DarkGray">Login</Button>
         <Button Name="btnRegister" Foreground="White" Click="btnRegister_Click" Width="200" Margin="0" FontSize="22" Background="DarkGray">Register</Button>

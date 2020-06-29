@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace To_do_list_system
 {
@@ -108,8 +109,9 @@ namespace To_do_list_system
             }
             catch 
             {
-                Console.WriteLine("Oops... something went wrong.");
-                Console.ReadKey();
+                //Console.WriteLine("Oops... something went wrong.");
+                //Console.ReadKey();
+                MessageBox.Show("Oops... something went wrong.");
             }
         }
 
@@ -192,6 +194,8 @@ namespace To_do_list_system
                     }
                     xLists.Add(toDoList[i]);
                 }
+
+
 
             try
             {

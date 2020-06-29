@@ -21,6 +21,7 @@ namespace ToDoApp.WPF
         public LoginWindow()
         {
             InitializeComponent();
+            txtUsername.Focus();
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -52,6 +53,38 @@ namespace ToDoApp.WPF
             RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
             this.Close();
+        }
+
+        private void CheckEnter(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                Validate();
+            }
+        }
+
+        private void Validate()
+        {
+            Login login = new Login();
+
+            if (txtUsername.Text == "" || txtPassword.Password == "")
+            {
+                MessageBox.Show("Please provide a username and password");
+            }
+            else
+            {
+                bool isUserFake = login.checkUser(txtPassword.Password, txtUsername.Text);
+                if (!isUserFake)
+                {
+                    MainWindow mainWindow = new MainWindow(txtUsername.Text);
+                    mainWindow.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username/password combination or User does not exist.");
+                }
+            }
         }
     }
 }

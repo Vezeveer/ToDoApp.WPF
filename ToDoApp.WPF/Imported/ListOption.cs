@@ -248,16 +248,16 @@ namespace To_do_list_system
         //            Console.Clear();
         //}
 
-        public void CreateList()
+        public void CreateList(string listName)
         {
-            MenuPrinter.PrintMenu("Create List", null, new string[] { "What is the name of the list?" });
-            Console.Write("> ");
-            string list = Console.ReadLine();
+            //MenuPrinter.PrintMenu("Create List", null, new string[] { "What is the name of the list?" });
+            //Console.Write("> ");
+            //string list = Console.ReadLine();
 
-            File.Create($@"{listDirectory}/{list}.txt").Dispose();
+            File.Create($@"{listDirectory}/{listName}.txt").Dispose();
 
-            Console.WriteLine("\n> Done...");
-            Console.ReadKey();
+            //Console.WriteLine("\n> Done...");
+            //Console.ReadKey();
         }
 
         //public void DeleteList(string username)
