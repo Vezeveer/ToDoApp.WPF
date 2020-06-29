@@ -1,5 +1,5 @@
 # ToDoApp.WPF
-A todo app in WPF. Simple as that.
+A planely made todo app in WPF to demonstrate my abilites in using C# and WPF, XAML. Classes borrowed from my recent Console app.
 
 Programmers in Group:
 Alonzo, Cyril
